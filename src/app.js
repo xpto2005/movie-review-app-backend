@@ -1,6 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
+app.use(cors());  // <-- IMPORTANTE!
 app.use(express.json());
 
 // Routes
@@ -15,4 +17,3 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
-
