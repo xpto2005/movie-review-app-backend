@@ -1,18 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const {
+  createReview,
+  getReviewsByMovie,
+  deleteReview,
+} = require("../controllers/reviewController");
 
-const reviewController = require('../controllers/reviewController');
-
-// GET all reviews or by movieId (?movie=ID)
-router.get('/', reviewController.getReviews);
-
-// GET reviews for one movie (cleaner route)
-router.get('/movie/:movieId', reviewController.getReviewsByMovie);
-
-// POST create review
-router.post('/', reviewController.createReview);
-
-// DELETE review by ID
-router.delete('/:id', reviewController.deleteReview);
+router.get("/:movieId", getReviewsByMovie);
+router.post("/:movieId", createReview);
+router.delete("/:id", deleteReview);
 
 module.exports = router;
