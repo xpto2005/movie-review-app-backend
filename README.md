@@ -1,13 +1,13 @@
-### Movie Review App – Backend API
+# Movie Review App – Backend API
 
 
-## Overview
+### Overview
 
 The Movie Review App – Backend API is a RESTful server that powers the Movie Review web application. It exposes endpoints to manage a catalogue of movies and their associated user reviews. The API allows clients to create, retrieve and delete movies, as well as add, list and remove reviews for each movie. Built with Node.js and Express, it communicates with a MongoDB database using Mongoose for object‑data modelling. Its aim is to provide a simple yet robust foundation for a full‑stack MERN project where the frontend, built with React, interacts seamlessly with this API.
 
 
 
-## Technologies & Purpose
+### Technologies & Purpose
 
 
 **Node.js**:	Provides a JavaScript runtime on the server side, allowing the same language to be used across the stack.
@@ -26,7 +26,7 @@ The Movie Review App – Backend API is a RESTful server that powers the Movie R
 
 
 
-## Features
+### Features
 
 CRUD operations for Movies – create new movies, list all movies, fetch a single movie by ID and delete movies.
 
@@ -40,7 +40,7 @@ Environment configuration – connection settings and secret values are loaded f
 
 
 
-## Folder Structure
+### Folder Structure
 
 backend/
 ├─ src/
@@ -61,20 +61,22 @@ backend/
 
 
 
-## Installation & Setup
+### Installation & Setup
 
-Clone the repository:
+**Clone the repository**:
 
 git clone https://github.com/xpto2005/movie-review-app-backend.git
 cd movie-review-app-backend
 
 
-Install dependencies:
+
+**Install dependencies**:
 
 npm install
 
 
-Create a .env file in the root of the backend folder and set the required variables:
+
+**Create a .env file in the root of the backend folder and set the required variables**:
 
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
@@ -84,9 +86,12 @@ MONGO_URI should be the full connection string to your MongoDB Atlas cluster.
 
 PORT is the port number the server will listen on (defaults to 5000 if not specified).
 
-Run the server in development mode:
+
+
+**Run the server in development mode**:
 
 npm run dev
+
 
 
 or start normally with:
@@ -98,10 +103,10 @@ The API should now be available at http://localhost:5000.
 
 
 
-### API Endpoints
+## API Endpoints
 
 
-## Movies
+### Movies
 
 Method	Endpoint	Description	Body Fields	Response (success)
 GET	/movies	Returns an array of all movies.	–	200 OK with array of movie objects
@@ -112,7 +117,7 @@ POST	/movies	Creates a new movie.	title (string, required)	201 Created with the 
 DELETE	/movies/:id	Deletes a movie and its associated reviews.	–	200 OK with deletion message
 
 
-## Reviews
+### Reviews
 
 Method	Endpoint	Description	Body Fields	Response (success)
 GET	/reviews/:movieId	Returns all reviews for the specified movie.	–	200 OK with array of reviews
@@ -122,7 +127,7 @@ POST	/reviews/:movieId	Adds a review to the specified movie.	author (string, req
 DELETE	/reviews/:id	Deletes a review by its ID.	–	200 OK with deletion message
 
 
-## Data Models
+### Data Models
 
 Movie Model (Movie.js)
 
@@ -147,9 +152,9 @@ comment (String) – Required. Review text.
 createdAt / updatedAt – Timestamps automatically added by Mongoose.
 
 
-## Example Request & Response
+### Example Request & Response
 
-# Create a Movie
+#### Create a Movie
 
 **Request**
 
@@ -175,7 +180,7 @@ Content-Type: application/json
 }
 
 
-# Add a Review
+#### Add a Review
 
 **Request**
 
@@ -203,7 +208,7 @@ Content-Type: application/json
 
 
 
-## Known Limitations & Future Enhancements
+### Known Limitations & Future Enhancements
 
 **No authentication**: All endpoints are public; implementing user authentication (JWT) would allow user‑specific actions and protect resources.
 
@@ -216,7 +221,7 @@ Content-Type: application/json
 **No tests**: Automated unit/integration tests would ensure reliability and facilitate refactoring.
 
 
-# Author
+### Author
 
 Paulo Filipe Soares Oliveira
 
