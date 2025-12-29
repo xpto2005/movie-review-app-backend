@@ -1,18 +1,18 @@
+// Controller for review-related operations
 const Review = require("../models/Review");
 
-// GET /reviews/:movieId
+// GET /reviews/:movieId - List reviews for a specific movie
 exports.getReviewsByMovie = async (req, res) => {
   try {
     const reviews = await Review.find({ movie: req.params.movieId })
-      .sort({ createdAt: -1 }); // mais recentes primeiro
-
+      .sort({ createdAt: -1 }); // newest first
     res.json(reviews);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-// POST /reviews/:movieId
+// POST /reviews/:movieId - Create a review for a movie
 exports.createReview = async (req, res) => {
   try {
     const { author, rating, comment } = req.body;
@@ -34,7 +34,7 @@ exports.createReview = async (req, res) => {
   }
 };
 
-// DELETE /reviews/:id
+// DELETE /reviews/:id - Remove a review by ID
 exports.deleteReview = async (req, res) => {
   try {
     const deleted = await Review.findByIdAndDelete(req.params.id);

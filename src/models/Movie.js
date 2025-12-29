@@ -1,3 +1,4 @@
+// Mongoose schema for Movie
 const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
@@ -13,6 +14,6 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   }
-}, { timestamps: true });
+}, { timestamps: true }); // adds createdAt and updatedAt fields
 
 module.exports = mongoose.model('Movie', movieSchema);
